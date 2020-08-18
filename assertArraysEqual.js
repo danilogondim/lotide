@@ -13,7 +13,7 @@ const eqArrays = (firstArray, secondArray) => {
 };
 
 // FUNCTION IMPLEMENTATION
-const assertArraysEqual = function (actual, expected) {
+const assertArraysEqual = function(actual, expected) {
   if (eqArrays(actual, expected)) {
     // console.log(`\u2705\u2705\u2705 Assertion Passed: [${actual}] === [${expected}]`);
     console.log("\u2705\u2705\u2705 Assertion Passed:", actual, "===", expected);
