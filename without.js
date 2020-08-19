@@ -45,6 +45,7 @@ console.log(without([1, 2, 3], [1])); // => [2, 3]
 console.log(without(["1", "2", "3"], [1, 2, "3"])); // => ["1", "2"]
 console.log(without(["1", "2", "3", undefined], [undefined])); // => ["1", "2", "3"]
 console.log(without(["1 2 3"], ["1, 2, 3"])); // => ["1 2 3"]
+// console.log(without(["1", "2", "3", undefined, NaN], [NaN])); // => ["1", "2", "3", undefined]
 
 // using assertArraysEqual
 assertArraysEqual([1, 2, 3], without([1, 2, 3], [1])); // => should FAIL
