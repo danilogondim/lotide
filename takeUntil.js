@@ -14,28 +14,7 @@ const takeUntil = (array, callback) => {
 };
 
 // TEST CODE
-// A COPY OF EQARRAYS FUNCTION
-const eqArrays = (firstArray, secondArray) => {
-  if (firstArray.length !== secondArray.length) {
-    return false;
-  } else {
-    for (let i = 0; i < firstArray.length; i++) {
-      if (firstArray[i] !== secondArray[i]) {
-        return false;
-      }
-    }
-  }
-  return true;
-};
-
-// A COPY OF ASSERTARRAYSEQUAL FUNCTION
-const assertArraysEqual = (actual, expected) => {
-  if (eqArrays(actual, expected)) {
-    console.log("\u2705\u2705\u2705 Assertion Passed:", actual, "===", expected);
-  } else {
-    console.log("\u274C\u274C\u274C Assertion Failed:", actual, "!==", expected);
-  }
-};
+const assertArraysEqual = require('./assertArraysEqual');
 
 // tests
 const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];

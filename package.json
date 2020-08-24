@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@danilogondim/lotide",
   "version": "1.0.0",
-  "description": "",
+  "description": "A mini clone of the Lodash library made and published for learning purposes",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
@@ -14,7 +14,10 @@
     "url": "git+https://github.com/danilogondim/lotide.git"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Danilo Gondim",
+    "email": "daniloencarnacao@gmail.com"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/danilogondim/lotide/issues"
