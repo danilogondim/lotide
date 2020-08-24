@@ -1,27 +1,4 @@
-// A COPY OF EQARRAYS FUNCTION
-const eqArrays = (firstArray, secondArray) => {
-  if (firstArray.length !== secondArray.length) {
-    return false;
-  } else {
-    for (let i = 0; i < firstArray.length; i++) {
-      if (firstArray[i] !== secondArray[i]) {
-        return false;
-      }
-    }
-  }
-  return true;
-};
-
-// A COPY OF ASSERTARRAYEQUAL FUNCTION
-const assertArraysEqual = (actual, expected) => {
-  if (eqArrays(actual, expected)) {
-    // console.log(`\u2705\u2705\u2705 Assertion Passed: [${actual}] === [${expected}]`);
-    console.log("\u2705\u2705\u2705 Assertion Passed:", actual, "===", expected);
-  } else {
-    // console.log(`\u274C\u274C\u274C Assertion Failed: [${actual}] !== [${expected}]`);
-    console.log("\u274C\u274C\u274C Assertion Failed:", actual, "!==", expected);
-  }
-};
+const assertArraysEqual = require('./assertArraysEqual');
 
 // FUNCTION IMPLEMENTATION
 // a function that takes in a source array and a itemsToRemove array, and returns a new array with only those elements from source that are not present in the itemsToRemove array
@@ -30,7 +7,7 @@ const without = (source, itemsToRemove) => {
   for (let element of source) {
     let toInclude = true;
     for (let item of itemsToRemove) {
-      if (element === item) {
+      if (element === item || (typeof element !== "string" && element !== undefined && isNaN(element) && isNaN(item))) {
         toInclude = false;
       }
     }
@@ -41,17 +18,18 @@ const without = (source, itemsToRemove) => {
   return output;
 };
 
-// console.log(without([1, 2, 3], [1])); // => [2, 3]
-// console.log(without(["1", "2", "3"], [1, 2, "3"])); // => ["1", "2"]
-// console.log(without(["1", "2", "3", undefined], [undefined])); // => ["1", "2", "3"]
-// console.log(without(["1 2 3"], ["1, 2, 3"])); // => ["1 2 3"]
+console.log(without([1, 2, 3], [1])); // => [2, 3]
+console.log(without(["1", "2", "3"], [1, 2, "3"])); // => ["1", "2"]
+console.log(without(["1", "2", "3", undefined], [undefined])); // => ["1", "2", "3"]
+console.log(without(["1 2 3"], ["1, 2, 3"])); // => ["1 2 3"]
 console.log(without(["1", "2", "3", undefined, NaN], [NaN])); // => ["1", "2", "3", undefined]
 
 // using assertArraysEqual
-// assertArraysEqual([1, 2, 3], without([1, 2, 3], [1])); // => should FAIL
-// assertArraysEqual(["1", "2", "3"], without(["1", "2", "3"], [1, 2, "3"])); // => should FAIL
-// assertArraysEqual(["1", "2", "3", undefined], without(["1", "2", "3", undefined], [undefined])); // => should FAIL
-// assertArraysEqual(["1 2 3"], without(["1 2 3"], ["1, 2, 3"])); // => should PASS
+assertArraysEqual([1, 2, 3], without([1, 2, 3], [])); // => should PASS
+assertArraysEqual([2, 3], without([1, 2, 3], [1])); // => should PASS
+assertArraysEqual(["1", "2"], without(["1", "2", "3"], [1, 2, "3"])); // => should PASS
+assertArraysEqual(["1", "2", "3"], without(["1", "2", "3", undefined], [undefined])); // => should PASS
+assertArraysEqual(["1 2 3"], without(["1 2 3"], ["1, 2, 3"])); // => should PASS
 assertArraysEqual(without(["1", "2", "3", undefined, NaN], [NaN]), ["1", "2", "3", undefined]); // => should PASS
 
 
