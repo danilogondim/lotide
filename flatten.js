@@ -43,3 +43,5 @@ assertArraysEqual(flatten([[3, 4]]), [3, 4]); // => should PASS
 assertArraysEqual(flatten([3, 4]), [3, 4]); // => should PASS
 assertArraysEqual(flatten([[3, 4], "a"]), [3, 4]); // => should FAIL
 assertArraysEqual(flatten([[3, 4], "a"]), [3, 4, "a"]); // => should PASS
+
+module.exports = flatten;

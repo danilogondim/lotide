@@ -44,3 +44,5 @@ assertArraysEqual(letterPositions("lighthouse in the house").t, [4, 14]); // => 
 assertArraysEqual(letterPositions("lighthouse in the house").h, [3, 5, 15, 18]); // => should PASS
 assertArraysEqual(letterPositions("lighthouse in the house").e, [9, 16, 22]); // => should PASS
 assertArraysEqual(letterPositions("lighthouse in the house").e, [4, 14]); // => should FAIL
+
+module.exports = letterPositions;

@@ -44,3 +44,5 @@ const tenants = {
 };
 assertEqual(findKey(tenants, x => x.name === "Danilo"), "101");
 assertEqual(findKey(tenants, x => x.name === "Sara"), undefined);
+
+module.exports = findKey;
