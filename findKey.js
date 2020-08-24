@@ -30,6 +30,7 @@ const moviesAndSeries = {
   "drama": { movie: "A Star is Born", series: "Dark" }
 };
 assertEqual(findKey(moviesAndSeries, x => x.series === "Dark"), "drama");
+assertEqual(findKey(moviesAndSeries, x => x.series === "Lost"), undefined);
 
 const tenants = {
   "901": { name: "Thiago", rent: 2500 },
