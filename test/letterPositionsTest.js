@@ -1,4 +1,3 @@
-// const assertArraysEqual = require('../assertArraysEqual');
 const letterPositions = require('../letterPositions');
 const { assert } = require('chai');
 
