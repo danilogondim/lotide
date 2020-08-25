@@ -1,19 +1,35 @@
 const eqArrays = require('../eqArrays');
-const assertEqual = require('../assertEqual');
+const { assert } = require('chai');
 
-// // TEST EQARRAYS FUNCTION
-// console.log(eqArrays([1, 2, 3], [1, 2, 3])); // => true
-// console.log(eqArrays([1, 2, 3], [3, 2, 1])); // => false
-// console.log(eqArrays(["1", "2", "3"], ["1", "2", "3"])); // => true
-// console.log(eqArrays(["1", "2", "3"], ["1", "2", 3])); // => false
-
-// // Use assertEqual to write test cases for various scenarios.
-// assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
-// assertEqual(eqArrays([1, 2, 3, 4], [1, 2, 3]), true); // => should FAIL
-// assertEqual(eqArrays([1, 2], [1, 2, 3]), true); // => should FAIL
-// assertEqual(eqArrays([1, 2, 3], [1, 2]), true); // => should FAIL
-// assertEqual(eqArrays([1, 2, 3], [1, 2, 3, 4]), true); // => should FAIL
-// assertEqual(eqArrays(["1, 2, 3"], ["1, 2, 3"]), true); // => should PASS
-// assertEqual(eqArrays([], []), true); // => should PASS
-// assertEqual(eqArrays([""], [""]), true); // => should PASS
-// assertEqual(eqArrays([undefined], [""]), true); // => should FAIL
+describe('#eqArrays', () => {
+  it('returns true for ([1, 2, 3], [1, 2, 3])', () => {
+    const arr1 = [1, 2, 3];
+    const arr2 = [1, 2, 3];
+    assert.isTrue(eqArrays(arr1, arr2));
+  });
+  it('returns true for ([], [])', () => {
+    const arr1 = [];
+    const arr2 = [];
+    assert.isTrue(eqArrays(arr1, arr2));
+  });
+  it('returns true for ([""], [""])', () => {
+    const arr1 = [""];
+    const arr2 = [""];
+    assert.isTrue(eqArrays(arr1, arr2));
+  });
+  it('returns false for (["1", "2", "3"], ["3", "2", "1"])', () => {
+    const arr1 = ["1", "2", "3"];
+    const arr2 = ["3", "2", "1"];
+    assert.isFalse(eqArrays(arr1, arr2));
+  });
+  it('returns false for ([1, 2, 3, 4], [1, 2, 3])', () => {
+    const arr1 = [1, 2, 3, 4];
+    const arr2 = [1, 2, 3];
+    assert.isFalse(eqArrays(arr1, arr2));
+  });
+  it('returns false for ([undefined], [""])', () => {
+    const arr1 = [undefined];
+    const arr2 = [""];
+    assert.isFalse(eqArrays(arr1, arr2));
+  });
+});
