@@ -1,4 +1,3 @@
-// const assertEqual = require('../assertEqual');
 const findKeyByValue = require('../findKeyByValue');
 const { assert } = require('chai');
 

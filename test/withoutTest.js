@@ -1,4 +1,3 @@
-const assertArraysEqual = require('../assertArraysEqual');
 const without = require('../without');
 const { assert } = require('chai');
 

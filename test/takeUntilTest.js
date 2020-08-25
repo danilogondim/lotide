@@ -1,6 +1,3 @@
-
-// TEST CODE
-// const assertArraysEqual = require('../assertArraysEqual');
 const takeUntil = require('../takeUntil');
 const { assert } = require('chai');
 
