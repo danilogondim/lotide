@@ -42,4 +42,9 @@ describe('#eqObjects', () => {
     const obj2 = { b: 2, a: { z: { i: { k: 3 } } } };
     assert.isTrue(eqObjects(obj1, obj2));
   });
+  it('returns true for ({ a: { z: { i: { k: [1, 2] } } }, b: 2 }, { b: 2, a: { z: { i: { k:[1, 2] } } } })', () => {
+    const obj1 = { a: { z: { i: { k: [1, 2] } } }, b: 2 };
+    const obj2 = { b: 2, a: { z: { i: { k: [1, 2] } } } };
+    assert.isTrue(eqObjects(obj1, obj2));
+  });
 });
