@@ -22,4 +22,24 @@ describe('#eqObjects', () => {
     const obj2 = { c: "1", d: ["2", 3, 4] };
     assert.isFalse(eqObjects(obj1, obj2));
   });
+  it('returns true for ({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })', () => {
+    const obj1 = { a: { z: 1 }, b: 2 };
+    const obj2 = { a: { z: 1 }, b: 2 };
+    assert.isTrue(eqObjects(obj1, obj2));
+  });
+  it('returns false for ({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })', () => {
+    const obj1 = { a: { y: 0, z: 1 }, b: 2 };
+    const obj2 = { a: { z: 1 }, b: 2 };
+    assert.isFalse(eqObjects(obj1, obj2));
+  });
+  it('returns false for ({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 })', () => {
+    const obj1 = { a: { y: 0, z: 1 }, b: 2 };
+    const obj2 = { a: 1, b: 2 };
+    assert.isFalse(eqObjects(obj1, obj2));
+  });
+  it('returns true for ({ a: { z: { i: { k: 3 } } }, b: 2 }, { b: 2, a: { z: { i: { k: 3 } } } })', () => {
+    const obj1 = { a: { z: { i: { k: 3 } } }, b: 2 };
+    const obj2 = { b: 2, a: { z: { i: { k: 3 } } } };
+    assert.isTrue(eqObjects(obj1, obj2));
+  });
 });
